@@ -1,0 +1,2842 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn anywhere with Starford International University. Explore courses, lectures, assignments, and academic support in one place.">
+  <meta name="theme-color" content="#102a43">
+  <title>Starford International University | E-Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+  /* 1. Design tokens and reset */
+:root {
+  color-scheme:light;
+  --ink:#102a43;
+  --muted:#607386;
+  --navy:#102a43;
+  --blue:#3867e8;
+  --pale:#f4f7fb;
+  --line:#e2e9f0;
+  --white:#fff;
+  --gold:#ffc857;
+  --radius:18px;
+  --shadow:0 20px 60px rgba(16,42,67,.10)
+}
+
+* {
+  box-sizing:border-box
+}
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:88px
+}
+body {
+  margin:0;
+  background:#fff;
+  color:var(--ink);
+  font-family:"DM Sans",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased
+}
+h1,h2,h3,p {
+  margin-top:0
+}
+h1,h2,h3,.brand {
+  font-family:Manrope,"DM Sans",sans-serif
+}
+a {
+  color:inherit
+}
+button,input {
+  font:inherit
+}
+.container {
+  width:min(1160px,calc(100% - 48px));
+  margin-inline:auto
+}
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0
+}
+.skip-link {
+  position:absolute;
+  left:12px;
+  top:-60px;
+  background:#fff;
+  color:var(--ink);
+  padding:10px 14px;
+  z-index:20
+}
+.skip-link:focus {
+  top:12px
+}
+
+/* 2. Shared buttons and type */
+.eyebrow {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#c5d5e5;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.15em;
+  margin-bottom:21px
+}
+.eyebrow-dark {
+  color:#536a80
+}
+.eyebrow-dot {
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 5px rgba(255,200,87,.13)
+}
+.button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  min-height:52px;
+  padding:0 21px;
+  border:1px solid var(--blue);
+  border-radius:9px;
+  background:var(--blue);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  transition:transform .2s,background .2s,box-shadow .2s
+}
+.button:hover {
+  transform:translateY(-2px);
+  background:#2855d4;
+  box-shadow:0 10px 22px rgba(56,103,232,.22)
+}
+.button-small {
+  min-height:42px;
+  padding-inline:16px;
+  font-size:13px
+}
+.button-outline {
+  background:transparent;
+  color:var(--ink);
+  border-color:#cbd6e1
+}
+.button-outline:hover {
+  background:#f3f6fb;
+  color:var(--ink);
+  box-shadow:none
+}
+.button-light {
+  background:#fff;
+  color:var(--navy);
+  border-color:#fff
+}
+.button-light:hover {
+  background:#edf2ff;
+  color:var(--navy)
+}
+
+/* 3. Header and navigation */
+.site-header {
+  height:78px;
+  display:flex;
+  align-items:center;
+  background:#fff;
+  border-bottom:1px solid rgba(226,233,240,.75);
+  position:sticky;
+  top:0;
+  z-index:10
+}
+.nav-wrap {
+  display:flex;
+  align-items:center;
+  justify-content:space-between
+}
+.brand {
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  text-decoration:none;
+  line-height:1.15
+}
+.brand-mark {
+  display:grid;
+  place-items:center;
+  width:39px;
+  height:39px;
+  background:var(--navy);
+  color:var(--gold);
+  border-radius:11px;
+  font-size:22px;
+  font-weight:800
+}
+.brand strong,.brand small {
+  display:block
+}
+.brand strong {
+  font-size:13px;
+  letter-spacing:.1em
+}
+.brand small {
+  margin-top:4px;
+  color:#76889a;
+  font-family:"DM Sans",sans-serif;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.13em
+}
+.primary-nav {
+  display:flex;
+  align-items:center;
+  gap:29px
+}
+.primary-nav>a:not(.button) {
+  color:#506477;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  transition:color .2s
+}
+.primary-nav>a:not(.button):hover {
+  color:var(--blue)
+}
+.primary-nav .nav-login {
+  margin-left:8px;
+  color:var(--ink)!important
+}
+.menu-toggle {
+  display:none
+}
+
+/* 4. Hero */
+.hero {
+  position:relative;
+  overflow:hidden;
+  background:var(--navy);
+  color:#fff;
+  padding:82px 0 25px
+}
+.hero:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:55px 55px;
+  mask-image:linear-gradient(90deg,#000,transparent 75%)
+}
+.hero-glow {
+  position:absolute;
+  width:570px;
+  height:570px;
+  border-radius:50%;
+  right:2%;
+  top:0;
+  background:radial-gradient(circle,rgba(56,103,232,.3),rgba(56,103,232,0) 68%)
+}
+.hero-grid {
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1.02fr;
+  gap:55px;
+  align-items:center
+}
+.hero-copy {
+  padding:10px 0 28px
+}
+.hero h1 {
+  max-width:600px;
+  margin-bottom:21px;
+  font-size:clamp(46px,6vw,70px);
+  line-height:1.06;
+  letter-spacing:-.055em;
+  font-weight:800
+}
+.hero h1 span {
+  color:var(--gold)
+}
+.hero-lede {
+  max-width:480px;
+  color:#c1cfdd;
+  font-size:16px;
+  line-height:1.8;
+  margin-bottom:28px
+}
+.hero-actions {
+  display:flex;
+  align-items:center;
+  gap:25px;
+  flex-wrap:wrap
+}
+.text-link {
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700
+}
+.text-link:hover {
+  text-decoration:underline
+}
+.play-icon {
+  display:grid;
+  place-items:center;
+  width:29px;
+  height:29px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  font-size:9px;
+  padding-left:2px
+}
+.hero-proof {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-top:38px
+}
+.avatar-stack {
+  display:flex;
+  padding-left:5px
+}
+.avatar-stack span {
+  display:grid;
+  place-items:center;
+  width:31px;
+  height:31px;
+  margin-left:-5px;
+  border:2px solid var(--navy);
+  border-radius:50%;
+  background:#d0e0f8;
+  color:#26445e;
+  font-size:9px;
+  font-weight:700
+}
+.avatar-stack span:nth-child(2) {
+  background:#e9c3a8
+}
+.avatar-stack span:nth-child(3) {
+  background:#a9d3c8
+}
+.avatar-stack span:nth-child(4) {
+  background:#f3d987
+}
+.hero-proof p {
+  margin:0;
+  color:#aebfce;
+  font-size:11px;
+  line-height:1.6
+}
+.hero-proof strong {
+  color:#fff;
+  font-size:12px
+}
+.hero-visual {
+  position:relative;
+  min-height:450px;
+  display:grid;
+  place-items:center
+}
+.visual-orbit {
+  position:absolute;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:50%;
+  width:440px;
+  height:440px
+}
+.orbit-two {
+  width:520px;
+  height:520px;
+  border-color:rgba(255,255,255,.055)
+}
+.dashboard-preview {
+  position:relative;
+  z-index:1;
+  width:min(100%,420px);
+  padding:25px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid rgba(255,255,255,.6);
+  border-radius:18px;
+  box-shadow:0 28px 85px rgba(0,0,0,.26);
+  transform:rotate(1deg)
+}
+.preview-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px
+}
+.preview-label {
+  color:#8495a4;
+  font-size:8px;
+  letter-spacing:.14em;
+  font-weight:700
+}
+.preview-top h2 {
+  margin:5px 0 0;
+  font-size:18px;
+  letter-spacing:-.04em
+}
+.preview-top h2 span {
+  color:#f5ad2c
+}
+.preview-avatar {
+  display:grid;
+  place-items:center;
+  width:37px;
+  height:37px;
+  border-radius:50%;
+  background:#e9efff;
+  color:#3867e8;
+  font-weight:800
+}
+.progress-panel {
+  padding:15px;
+  background:#f5f7fb;
+  border-radius:11px
+}
+.progress-head,.progress-foot {
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+.progress-head {
+  font-size:10px;
+  font-weight:600
+}
+.progress-head strong {
+  font-size:14px;
+  color:var(--blue)
+}
+.progress-track {
+  height:6px;
+  margin:11px 0 8px;
+  background:#e1e7ef;
+  border-radius:8px;
+  overflow:hidden
+}
+.progress-track span {
+  display:block;
+  width:68%;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#3867e8,#7b91f5)
+}
+.progress-foot {
+  font-size:8px;
+  color:#8090a0
+}
+.preview-section-head {
+  display:flex;
+  justify-content:space-between;
+  margin:20px 0 10px;
+  font-size:11px
+}
+.preview-section-head a {
+  color:var(--blue);
+  font-size:9px;
+  text-decoration:none
+}
+.mini-course {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:11px 0;
+  border-top:1px solid #edf0f4
+}
+.mini-icon {
+  display:grid;
+  place-items:center;
+  width:35px;
+  height:35px;
+  border-radius:9px;
+  font-size:17px;
+  font-weight:bold
+}
+.icon-blue {
+  background:#e9efff;
+  color:#3867e8
+}
+.icon-gold {
+  background:#fff2d7;
+  color:#c98711
+}
+.mini-course-copy {
+  flex:1
+}
+.mini-course-copy strong,.mini-course-copy small {
+  display:block
+}
+.mini-course-copy strong {
+  font-size:9px
+}
+.mini-course-copy small {
+  margin-top:3px;
+  color:#8391a0;
+  font-size:8px
+}
+.mini-arrow {
+  color:#8391a0;
+  font-size:13px
+}
+.upcoming {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  margin-top:10px;
+  background:#f2f7f5;
+  border-radius:9px
+}
+.calendar-icon {
+  display:grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  border-radius:8px;
+  background:#d8efe6;
+  color:#2d9272
+}
+.upcoming>span:nth-child(2) {
+  flex:1
+}
+.upcoming strong,.upcoming small {
+  display:block
+}
+.upcoming strong {
+  font-size:9px
+}
+.upcoming small {
+  font-size:8px;
+  color:#718478
+}
+.upcoming-pill {
+  padding:4px 7px;
+  border-radius:20px;
+  background:#fff;
+  color:#2d9272;
+  font-size:8px;
+  font-weight:700
+}
+.floating-note {
+  position:absolute;
+  z-index:2;
+  right:-12px;
+  bottom:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 15px;
+  background:#fff;
+  color:var(--ink);
+  border-radius:12px;
+  box-shadow:var(--shadow)
+}
+.note-check {
+  display:grid;
+  place-items:center;
+  width:29px;
+  height:29px;
+  background:#e6f6ee;
+  color:#25a26d;
+  border-radius:50%;
+  font-weight:800
+}
+.floating-note strong,.floating-note small {
+  display:block
+}
+.floating-note strong {
+  font-size:10px
+}
+.floating-note small {
+  font-size:8px;
+  color:#8291a0
+}
+.hero-bottom {
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:23px;
+  padding-top:20px;
+  color:#96a9bb;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.18em
+}
+.hero-line {
+  width:34px;
+  height:1px;
+  background:rgba(255,255,255,.22)
+}
+
+/* 5. Highlights and courses */
+.stats-strip {
+  border-bottom:1px solid var(--line);
+  background:#fff
+}
+.stats-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:24px 0
+}
+.stats-grid>div {
+  padding:2px 20px;
+  border-right:1px solid var(--line)
+}
+.stats-grid>div:first-child {
+  padding-left:0
+}
+.stats-grid>div:last-child {
+  border:0
+}
+.stats-grid strong,.stats-grid span {
+  display:block
+}
+.stats-grid strong {
+  font:700 16px Manrope,sans-serif
+}
+.stats-grid span {
+  margin-top:3px;
+  color:var(--muted);
+  font-size:11px
+}
+.section {
+  padding:94px 0
+}
+.programs-section {
+  background:#f7f9fc
+}
+.section-heading {
+  display:grid;
+  grid-template-columns:1fr .68fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:36px
+}
+.section-heading h2,.experience-copy h2 {
+  margin:0;
+  font-size:clamp(34px,4.3vw,48px);
+  line-height:1.14;
+  letter-spacing:-.05em
+}
+.section-heading h2 span,.experience-copy h2 span {
+  color:var(--blue)
+}
+.section-heading>p {
+  max-width:390px;
+  margin:0 0 4px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8
+}
+.program-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px
+}
+.program-card {
+  min-height:287px;
+  display:flex;
+  flex-direction:column;
+  padding:21px;
+  background:#fff;
+  border:1px solid #e8edf3;
+  border-radius:14px;
+  transition:transform .2s,box-shadow .2s
+}
+.program-card:hover {
+  transform:translateY(-4px);
+  box-shadow:var(--shadow)
+}
+.program-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:21px
+}
+.program-icon {
+  display:grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  border-radius:11px;
+  font-size:19px;
+  font-weight:700
+}
+.program-icon.blue {
+  background:#e9efff;
+  color:#3867e8
+}
+.program-icon.violet {
+  background:#f1eaff;
+  color:#8756d9
+}
+.program-icon.mint {
+  background:#e4f5f0;
+  color:#259b79
+}
+.program-icon.amber {
+  background:#fff1d9;
+  color:#cc8a16
+}
+.program-tag {
+  color:#8b9bab;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.12em
+}
+.program-card h3 {
+  max-width:220px;
+  margin:0 0 9px;
+  font-size:16px;
+  line-height:1.4;
+  letter-spacing:-.025em
+}
+.program-card>p {
+  margin:0;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7
+}
+.program-meta {
+  display:flex;
+  gap:12px;
+  margin-top:auto;
+  padding-top:17px;
+  color:#77899b;
+  font-size:9px
+}
+.program-link {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:13px;
+  padding-top:12px;
+  border-top:1px solid #edf0f4;
+  color:var(--blue);
+  text-decoration:none;
+  font-size:11px;
+  font-weight:700
+}
+.center-action {
+  text-align:center;
+  margin-top:30px
+}
+
+/* 6. Learning experience */
+.experience-section {
+  padding:93px 0
+}
+.experience-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:95px;
+  align-items:center
+}
+.experience-art {
+  position:relative;
+  min-height:385px;
+  display:grid;
+  place-items:center;
+  background:#f2f5ff;
+  border-radius:20px;
+  overflow:hidden
+}
+.experience-art:before,.experience-art:after {
+  content:"";
+  position:absolute;
+  border:1px solid rgba(56,103,232,.1);
+  border-radius:50%;
+  width:360px;
+  height:360px
+}
+.experience-art:after {
+  width:470px;
+  height:470px
+}
+.art-window {
+  position:relative;
+  z-index:1;
+  width:74%;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 25px 60px rgba(30,61,110,.16);
+  overflow:hidden;
+  transform:rotate(-3deg)
+}
+.art-window-bar {
+  height:33px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:0 12px;
+  background:#f8f9fc;
+  border-bottom:1px solid #edf0f5
+}
+.art-window-bar i {
+  width:6px;
+  height:6px;
+  background:#ccd4df;
+  border-radius:50%
+}
+.art-window-bar span {
+  margin-left:auto;
+  color:#9ba8b4;
+  font-size:6px;
+  letter-spacing:.14em
+}
+.art-content {
+  display:grid;
+  grid-template-columns:35px 1fr;
+  min-height:253px
+}
+.art-side {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+  padding-top:17px;
+  border-right:1px solid #eff1f5
+}
+.art-side b {
+  width:12px;
+  height:12px;
+  background:#e9efff;
+  border-radius:4px
+}
+.art-side b:first-child {
+  background:#3867e8
+}
+.art-main {
+  padding:21px
+}
+.art-kicker {
+  display:block;
+  margin-bottom:9px;
+  color:#8696a7;
+  font-size:7px;
+  letter-spacing:.13em
+}
+.art-main>strong {
+  display:block;
+  font:800 24px/1.17 Manrope,sans-serif;
+  letter-spacing:-.05em
+}
+.art-lines {
+  display:grid;
+  gap:6px;
+  margin:13px 0
+}
+.art-lines i {
+  width:90%;
+  height:4px;
+  background:#edf1f5;
+  border-radius:5px
+}
+.art-lines i:nth-child(2) {
+  width:75%
+}
+.art-lines i:nth-child(3) {
+  width:48%
+}
+.art-video {
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:linear-gradient(120deg,#162e52,#395c95);
+  border-radius:7px;
+  color:#fff
+}
+.art-video span {
+  display:grid;
+  place-items:center;
+  width:27px;
+  height:27px;
+  border:1px solid rgba(255,255,255,.65);
+  border-radius:50%;
+  font-size:9px;
+  padding-left:2px
+}
+.art-video small {
+  font-size:7px;
+  letter-spacing:.12em
+}
+.art-badge {
+  position:absolute;
+  z-index:2;
+  right:6%;
+  bottom:11%;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 15px;
+  background:#fff;
+  border-radius:11px;
+  box-shadow:var(--shadow);
+  font:700 10px/1.4 Manrope,sans-serif
+}
+.art-badge span {
+  display:grid;
+  place-items:center;
+  width:29px;
+  height:29px;
+  border-radius:9px;
+  background:#fff2d7;
+  color:#db9a1c
+}
+.experience-copy .eyebrow {
+  margin-bottom:16px
+}
+.section-intro {
+  max-width:450px;
+  margin:17px 0 22px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8
+}
+.benefit-list {
+  display:grid;
+  gap:17px;
+  padding:0;
+  margin:0 0 23px;
+  list-style:none
+}
+.benefit-list li {
+  display:flex;
+  gap:12px
+}
+.benefit-list li>span {
+  flex:none;
+  display:grid;
+  place-items:center;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#e9efff;
+  color:var(--blue);
+  font-size:11px;
+  font-weight:800
+}
+.benefit-list strong {
+  font-size:12px
+}
+.benefit-list p {
+  margin:3px 0 0;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.6
+}
+.dark-link {
+  color:var(--blue)
+}
+
+/* 7. Contact CTA and footer */
+.portal-section {
+  padding:66px 0;
+  background:var(--navy);
+  color:#fff
+}
+.portal-grid {
+  display:grid;
+  grid-template-columns:1fr .72fr;
+  gap:90px;
+  align-items:center
+}
+.portal-section .eyebrow {
+  margin-bottom:13px
+}
+.portal-section h2 {
+  margin:0 0 13px;
+  font-size:clamp(36px,4.2vw,50px);
+  line-height:1.1;
+  letter-spacing:-.05em
+}
+.portal-section>div>div>p:not(.eyebrow) {
+  max-width:470px;
+  color:#b6c5d3;
+  font-size:13px;
+  line-height:1.8
+}
+.portal-actions {
+  display:flex;
+  align-items:center;
+  gap:22px;
+  margin-top:23px
+}
+.portal-phone {
+  color:#dbe4ec;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700
+}
+.portal-card {
+  padding:23px;
+  background:#fff;
+  color:var(--ink);
+  border-radius:14px
+}
+.portal-card-heading {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px
+}
+.portal-card-icon {
+  display:grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  background:#e9efff;
+  color:var(--blue)
+}
+.portal-card h3 {
+  margin:0;
+  font-size:15px
+}
+.portal-card-heading p {
+  margin:3px 0 0;
+  color:var(--muted);
+  font-size:10px
+}
+.portal-card label {
+  display:block;
+  margin-bottom:7px;
+  font-size:10px;
+  font-weight:700
+}
+.email-row {
+  display:flex;
+  gap:8px
+}
+.email-row input {
+  min-width:0;
+  flex:1;
+  height:44px;
+  padding:0 12px;
+  border:1px solid #dce4ec;
+  border-radius:7px;
+  color:var(--ink);
+  font-size:11px
+}
+.email-row input:focus {
+  outline:3px solid rgba(56,103,232,.18);
+  border-color:var(--blue)
+}
+.email-row button {
+  width:44px;
+  border:0;
+  border-radius:7px;
+  background:var(--blue);
+  color:#fff;
+  font-size:20px;
+  cursor:pointer
+}
+.form-note {
+  margin:11px 0 0;
+  color:#77899b;
+  font-size:9px;
+  line-height:1.6
+}
+.site-footer {
+  background:#0b2035;
+  color:#fff
+}
+.footer-main {
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:35px;
+  align-items:center;
+  padding:27px 0;
+  border-bottom:1px solid rgba(255,255,255,.12)
+}
+.footer-brand .brand-mark {
+  background:#1d3956
+}
+.footer-brand small {
+  color:#a4b4c4
+}
+.footer-main>p {
+  margin:0;
+  color:#a9bac9;
+  font-size:11px
+}
+.footer-links {
+  display:flex;
+  gap:19px
+}
+.footer-links a {
+  color:#c1ceda;
+  text-decoration:none;
+  font-size:10px
+}
+.footer-links a:hover {
+  color:#fff
+}
+.footer-bottom {
+  display:flex;
+  justify-content:space-between;
+  padding:16px 0;
+  color:#8296a9;
+  font-size:9px
+}
+
+.student-workspace {
+  padding:64px 0;
+  background:#f1f6fb
+}
+.workspace-shell {
+  display:grid;
+  grid-template-columns:210px minmax(0,1fr);
+  gap:20px;
+  align-items:start
+}
+.workspace-side,.workspace-panel,.workspace-stat {
+  background:#fff;
+  border:1px solid #e3ebf3;
+  border-radius:14px;
+  box-shadow:0 10px 28px rgba(22,57,88,.05)
+}
+.workspace-side {
+  padding:18px;
+  position:sticky;
+  top:94px
+}
+.workspace-welcome {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding-bottom:15px;
+  border-bottom:1px solid var(--line)
+}
+.workspace-avatar {
+  display:grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#e2efff;
+  color:#2865b0;
+  font-weight:800
+}
+.workspace-welcome strong,.workspace-welcome small {
+  display:block
+}
+.workspace-welcome strong {
+  font-size:12px
+}
+.workspace-welcome small {
+  font-size:10px;
+  color:var(--muted)
+}
+.workspace-menu {
+  display:grid;
+  gap:4px;
+  margin-top:14px
+}
+.workspace-menu button {
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  border:0;
+  border-radius:8px;
+  background:transparent;
+  color:#586e81;
+  text-align:left;
+  font-size:11px;
+  font-weight:700;
+  cursor:pointer
+}
+.workspace-menu button.active,.workspace-menu button:hover {
+  background:#eaf2ff;
+  color:#2862b0
+}
+.workspace-help {
+  margin:17px 0 0;
+  padding:12px;
+  background:#f5f8fb;
+  border-radius:9px;
+  color:#728395;
+  font-size:10px
+}
+.workspace-help strong {
+  display:block;
+  color:var(--ink)
+}
+.workspace-main {
+  min-width:0
+}
+.workspace-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:12px;
+  margin-bottom:16px
+}
+.workspace-heading .eyebrow {
+  margin:0 0 5px
+}
+.workspace-heading h2 {
+  margin:0;
+  font-size:clamp(25px,4vw,36px);
+  letter-spacing:-.05em
+}
+.workspace-heading>span {
+  color:var(--muted);
+  font-size:10px
+}
+.workspace-stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:11px;
+  margin-bottom:13px
+}
+.workspace-stat {
+  padding:15px
+}
+.workspace-stat span,.workspace-stat strong,.workspace-stat small {
+  display:block
+}
+.workspace-stat span,.workspace-stat small {
+  color:var(--muted);
+  font-size:10px
+}
+.workspace-stat strong {
+  margin:4px 0;
+  font:800 22px Manrope,sans-serif
+}
+.workspace-columns {
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:13px;
+  align-items:start
+}
+.workspace-panel {
+  padding:17px;
+  min-width:0
+}
+.workspace-panel-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:12px
+}
+.workspace-panel-heading h3 {
+  margin:0;
+  font-size:14px
+}
+.workspace-panel-heading a {
+  color:var(--blue);
+  font-size:10px;
+  font-weight:700;
+  text-decoration:none
+}
+.workspace-action {
+  border:0;
+  border-radius:7px;
+  background:#edf3ff;
+  color:#2e63b7;
+  padding:8px 10px;
+  font-size:10px;
+  font-weight:700;
+  cursor:pointer
+}
+.workspace-search {
+  width:100%;
+  height:36px;
+  margin-bottom:8px;
+  padding:0 10px;
+  border:1px solid #dce5ed;
+  border-radius:8px;
+  font-size:11px
+}
+.workspace-course,.assignment-row {
+  display:grid;
+  grid-template-columns:36px 1fr auto;
+  gap:9px;
+  align-items:center;
+  padding:10px 0;
+  border-top:1px solid #edf1f5
+}
+.course-mark,.assignment-icon {
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  background:#eaf1ff;
+  color:#3766cf;
+  font-weight:800
+}
+.workspace-course strong,.workspace-course small,.assignment-row strong,.assignment-row small {
+  display:block
+}
+.workspace-course strong,.assignment-row strong {
+  font-size:10px
+}
+.workspace-course small,.assignment-row small {
+  margin-top:2px;
+  color:var(--muted);
+  font-size:9px
+}
+.course-progress {
+  width:65px;
+  text-align:right;
+  color:#667b8e;
+  font-size:9px
+}
+.course-progress i,.course-progress b {
+  display:block;
+  height:5px;
+  border-radius:8px
+}
+.course-progress i {
+  margin-top:4px;
+  background:#e5eaf0
+}
+.course-progress b {
+  background:#4280d8
+}
+.assignment-icon {
+  width:27px;
+  height:27px;
+  font-size:11px
+}
+.assignment-date {
+  color:#ad751b;
+  font-size:9px;
+  font-weight:700
+}
+.workspace-note {
+  margin:10px 0 0;
+  color:#8291a0;
+  font-size:9px;
+  line-height:1.5
+}
+.workspace-tab {
+  display:none
+}
+.workspace-tab.active {
+  display:block
+}
+.result-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:10px
+}
+.result-table th,.result-table td {
+  padding:9px 7px;
+  border-bottom:1px solid #edf1f5;
+  text-align:left
+}
+.result-table th {
+  color:#718397;
+  background:#f7f9fc
+}
+.result-table td:last-child {
+  color:#526b82
+}
+.workspace-empty {
+  display:none;
+  padding:12px 0;
+  color:var(--muted);
+  font-size:11px
+}
+
+@media(max-width:850px) {
+  .workspace-shell {
+  grid-template-columns:1fr
+}
+.workspace-side {
+  position:static
+}
+.workspace-menu {
+  grid-template-columns:repeat(3,1fr)
+}
+.workspace-help {
+  display:none
+}
+
+}
+
+@media(max-width:620px) {
+  .student-workspace {
+  padding:48px 0
+}
+.workspace-stats {
+  grid-template-columns:1fr 1fr
+}
+.workspace-stat:last-child {
+  grid-column:1/-1
+}
+.workspace-columns {
+  grid-template-columns:1fr
+}
+.workspace-heading {
+  align-items:start;
+  flex-direction:column;
+  gap:4px
+}
+.workspace-panel {
+  padding:14px
+}
+.workspace-menu button {
+  justify-content:center;
+  padding:9px 4px;
+  font-size:10px
+}
+
+}
+
+/* 8. Responsive layout */
+@media(max-width:960px) {
+  .hero-grid {
+  gap:25px;
+  grid-template-columns:1fr 1fr
+}
+.hero h1 {
+  font-size:56px
+}
+.dashboard-preview {
+  padding:19px
+}
+.program-grid {
+  grid-template-columns:repeat(2,1fr)
+}
+.experience-grid {
+  gap:45px
+}
+.portal-grid {
+  gap:40px
+}
+.primary-nav {
+  gap:18px
+}
+
+}
+
+@media(max-width:720px) {
+  .container {
+  width:min(100% - 36px,560px)
+}
+.site-header {
+  height:68px
+}
+.menu-toggle {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  width:42px;
+  height:42px;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:#fff
+}
+.menu-toggle>span:not(.sr-only) {
+  width:17px;
+  height:2px;
+  background:var(--ink);
+  border-radius:2px
+}
+.primary-nav {
+  position:absolute;
+  top:67px;
+  left:0;
+  right:0;
+  display:none;
+  align-items:stretch;
+  gap:0;
+  padding:8px 18px 17px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 15px 22px rgba(16,42,67,.08)
+}
+.primary-nav.is-open {
+  display:flex;
+  flex-direction:column
+}
+.primary-nav>a:not(.button) {
+  padding:11px 3px
+}
+.primary-nav .nav-login {
+  margin:0
+}
+.primary-nav .button {
+  margin-top:7px
+}
+.hero {
+  padding:57px 0 20px
+}
+.hero-grid {
+  grid-template-columns:1fr;
+  gap:10px
+}
+.hero-copy {
+  padding:0
+}
+.hero h1 {
+  font-size:clamp(48px,12vw,66px)
+}
+.hero-lede {
+  font-size:14px
+}
+.hero-visual {
+  min-height:420px
+}
+.dashboard-preview {
+  width:min(100% - 25px,420px)
+}
+.floating-note {
+  right:0;
+  bottom:11px
+}
+.visual-orbit {
+  width:370px;
+  height:370px
+}
+.orbit-two {
+  width:440px;
+  height:440px
+}
+.hero-bottom {
+  gap:10px;
+  font-size:6px;
+  letter-spacing:.1em
+}
+.hero-line {
+  width:17px
+}
+.stats-grid {
+  grid-template-columns:repeat(2,1fr);
+  row-gap:19px;
+  padding:21px 0
+}
+.stats-grid>div {
+  padding:0 10px;
+  border:0
+}
+.stats-grid>div:nth-child(odd) {
+  padding-left:0
+}
+.stats-grid strong {
+  font-size:14px
+}
+.stats-grid span {
+  font-size:10px
+}
+.section {
+  padding:66px 0
+}
+.section-heading {
+  grid-template-columns:1fr;
+  gap:15px;
+  margin-bottom:25px
+}
+.section-heading h2,.experience-copy h2 {
+  font-size:38px
+}
+.section-heading>p {
+  font-size:12px
+}
+.program-grid {
+  gap:11px
+}
+.program-card {
+  min-height:280px;
+  padding:15px
+}
+.program-card h3 {
+  font-size:14px
+}
+.program-card>p {
+  font-size:10px
+}
+.program-meta {
+  gap:7px;
+  font-size:8px
+}
+.experience-section {
+  padding:63px 0
+}
+.experience-grid {
+  grid-template-columns:1fr;
+  gap:35px
+}
+.experience-art {
+  min-height:330px
+}
+.art-window {
+  width:78%
+}
+.portal-section {
+  padding:54px 0
+}
+.portal-grid {
+  grid-template-columns:1fr;
+  gap:30px
+}
+.footer-main {
+  grid-template-columns:1fr;
+  gap:14px
+}
+.footer-main>p {
+  max-width:300px
+}
+.footer-links {
+  flex-wrap:wrap;
+  gap:15px
+}
+.footer-bottom {
+  gap:12px;
+  flex-wrap:wrap
+}
+
+}
+
+@media(max-width:390px) {
+  .container {
+  width:calc(100% - 28px)
+}
+.brand strong {
+  font-size:11px
+}
+.brand small {
+  font-size:7px
+}
+.hero-actions {
+  gap:15px
+}
+.hero-actions .button {
+  min-height:47px;
+  padding-inline:15px
+}
+.hero-proof {
+  margin-top:26px
+}
+.hero-visual {
+  min-height:390px
+}
+.dashboard-preview {
+  padding:16px
+}
+.hero-bottom {
+  font-size:5px
+}
+.hero-line {
+  width:10px
+}
+.program-grid {
+  grid-template-columns:1fr
+}
+.program-card {
+  min-height:unset
+}
+.program-card>p {
+  font-size:11px
+}
+.program-meta {
+  margin-top:14px
+}
+.portal-actions {
+  align-items:flex-start;
+  flex-direction:column;
+  gap:15px
+}
+
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+  scroll-behavior:auto!important;
+  transition:none!important
+}
+
+}
+
+/* 9. Registration and payment forms */
+.enrollment-section {
+  background:#fff
+}
+.enrollment-grid {
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:19px;
+  align-items:start
+}
+.enrollment-card {
+  padding:25px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:15px;
+  box-shadow:0 12px 38px rgba(16,42,67,.055)
+}
+.form-title {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:22px
+}
+.form-icon {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:39px;
+  height:39px;
+  border-radius:11px;
+  background:#e9efff;
+  color:var(--blue);
+  font:800 12px Manrope,sans-serif
+}
+.gold-form-icon {
+  background:#fff2d7;
+  color:#bf8110
+}
+.form-title h3 {
+  margin:0;
+  font-size:16px
+}
+.form-title p {
+  margin:4px 0 0;
+  color:var(--muted);
+  font-size:11px
+}
+.field-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px
+}
+.field {
+  margin-bottom:14px
+}
+.field label {
+  display:block;
+  margin-bottom:6px;
+  color:#334b61;
+  font-size:10px;
+  font-weight:700
+}
+.field label span {
+  color:#8a98a6;
+  font-weight:400
+}
+.field input,.field select {
+  width:100%;
+  min-height:43px;
+  padding:0 11px;
+  border:1px solid #dce4ec;
+  border-radius:7px;
+  background:#fff;
+  color:var(--ink);
+  font-size:11px
+}
+.field input::placeholder {
+  color:#9aa7b3
+}
+.field input:focus,.field select:focus {
+  outline:3px solid rgba(56,103,232,.16);
+  border-color:var(--blue)
+}
+.field-wide {
+  grid-column:1/-1
+}
+.field .check-label {
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  font-weight:500;
+  line-height:1.5
+}
+.check-label input {
+  width:15px;
+  min-height:15px;
+  margin:1px 0 0;
+  accent-color:var(--blue)
+}
+.form-submit {
+  width:100%;
+  min-height:46px;
+  margin-top:1px;
+  font-size:12px
+}
+.form-feedback {
+  min-height:28px;
+  margin:11px 0 0;
+  color:#748699;
+  font-size:9px;
+  line-height:1.6
+}
+.fee-summary {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:13px;
+  margin:0 0 17px;
+  background:#f5f7fb;
+  border-radius:8px
+}
+.fee-summary>span {
+  font-size:10px;
+  font-weight:700
+}
+.fee-summary small {
+  display:block;
+  margin-top:3px;
+  color:#8593a1;
+  font-size:8px;
+  font-weight:400
+}
+.fee-summary strong {
+  white-space:nowrap;
+  color:var(--ink);
+  font:700 14px Manrope,sans-serif
+}
+
+@media(max-width:720px) {
+  .enrollment-grid {
+  grid-template-columns:1fr
+}
+.enrollment-section {
+  padding:65px 0
+}
+.enrollment-card {
+  padding:19px
+}
+
+}
+
+@media(max-width:390px) {
+  .field-grid {
+  grid-template-columns:1fr
+}
+.field-wide {
+  grid-column:auto
+}
+.fee-summary strong {
+  font-size:12px
+}
+
+}
+
+/* 10. Motion and interaction polish */
+@keyframes fade-up {
+  from {
+  opacity:0;
+  transform:translateY(18px)
+}
+to {
+  opacity:1;
+  transform:translateY(0)
+}
+
+}
+
+@keyframes float-card {
+  0%,100% {
+  transform:translateY(0) rotate(1deg)
+}
+50% {
+  transform:translateY(-8px) rotate(1deg)
+}
+
+}
+
+@keyframes glow-breathe {
+  0%,100% {
+  opacity:.7;
+  transform:scale(.96)
+}
+50% {
+  opacity:1;
+  transform:scale(1.04)
+}
+
+}
+
+.hero-copy>* {
+  animation:fade-up .65s both;
+  animation-timing-function:cubic-bezier(.2,.7,.2,1)
+}
+
+.hero-copy>*:nth-child(2) {
+  animation-delay:.08s
+}
+.hero-copy>*:nth-child(3) {
+  animation-delay:.16s
+}
+.hero-copy>*:nth-child(4) {
+  animation-delay:.24s
+}
+.hero-copy>*:nth-child(5) {
+  animation-delay:.32s
+}
+
+.dashboard-preview {
+  animation:fade-up .8s .12s both cubic-bezier(.2,.7,.2,1),float-card 6s 1s infinite ease-in-out
+}
+
+.hero-glow {
+  animation:glow-breathe 8s infinite ease-in-out
+}
+
+.program-card,.enrollment-card,.portal-card,.mini-course,.button,.program-link,.text-link,.footer-links a,.primary-nav a,.menu-toggle,.field input,.field select {
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease,color .22s ease
+}
+
+.program-card:hover,.program-card:focus-within {
+  transform:translateY(-5px);
+  box-shadow:0 18px 38px rgba(16,42,67,.11)
+}
+
+.enrollment-card:hover,.portal-card:hover {
+  box-shadow:0 18px 48px rgba(16,42,67,.10)
+}
+
+.mini-course:hover {
+  padding-inline:7px;
+  background:#f8faff;
+  border-radius:8px
+}
+
+.program-link span,.button span,.portal-phone span {
+  display:inline-block;
+  transition:transform .2s ease
+}
+
+.program-link:hover span,.button:hover span,.portal-phone:hover span {
+  transform:translateX(4px)
+}
+
+.button:active {
+  transform:translateY(0) scale(.98)
+}
+
+.menu-toggle:hover {
+  background:#f5f7fb;
+  border-color:#c7d5e3
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .hero-copy>*,.dashboard-preview,.hero-glow {
+  animation:none!important
+}
+.program-card:hover,.program-card:focus-within,.button:hover,.button:active {
+  transform:none
+}
+
+}
+
+/* 11. Lecturer profiles */
+.lecturers-section {
+  background:#f7f9fc
+}
+.lecturer-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px
+}
+.lecturer-card {
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #e8edf3;
+  border-radius:14px;
+  transition:transform .22s ease,box-shadow .22s ease
+}
+.lecturer-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 18px 38px rgba(16,42,67,.11)
+}
+.lecturer-portrait {
+  height:190px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  overflow:hidden
+}
+.lecturer-portrait:before,.lecturer-portrait:after {
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,.23)
+}
+.lecturer-portrait:before {
+  width:170px;
+  height:170px;
+  top:33px;
+  left:calc(50% - 85px)
+}
+.lecturer-portrait:after {
+  width:110px;
+  height:110px;
+  top:66px;
+  left:calc(50% - 55px);
+  border:1px solid rgba(255,255,255,.38);
+  background:transparent
+}
+.portrait-blue {
+  background:linear-gradient(145deg,#dce8ff,#aac2ed)
+}
+.portrait-gold {
+  background:linear-gradient(145deg,#f9e8c4,#edc878)
+}
+.portrait-green {
+  background:linear-gradient(145deg,#d5eee5,#9ccdbb)
+}
+.portrait-violet {
+  background:linear-gradient(145deg,#e9def9,#c7afea)
+}
+.lecturer-portrait>span {
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:rgba(255,255,255,.82);
+  color:var(--navy);
+  font:800 22px Manrope,sans-serif;
+  box-shadow:0 8px 25px rgba(16,42,67,.12)
+}
+.lecturer-portrait>small {
+  position:absolute;
+  bottom:12px;
+  left:0;
+  right:0;
+  text-align:center;
+  color:rgba(16,42,67,.62);
+  font-size:7px;
+  font-weight:700;
+  letter-spacing:.16em
+}
+.lecturer-info {
+  padding:17px
+}
+.lecturer-info h3 {
+  margin:0;
+  font-size:15px
+}
+.lecturer-role {
+  margin:4px 0 10px!important;
+  color:var(--blue)!important;
+  font-size:9px!important;
+  font-weight:700
+}
+.lecturer-info p {
+  margin:0;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.7
+}
+
+@media(max-width:960px) {
+  .lecturer-grid {
+  grid-template-columns:repeat(2,1fr)
+}
+
+}
+
+@media(max-width:420px) {
+  .lecturer-grid {
+  grid-template-columns:1fr 1fr;
+  gap:10px
+}
+.lecturer-portrait {
+  height:135px
+}
+.lecturer-portrait:before {
+  width:125px;
+  height:125px;
+  top:15px;
+  left:calc(50% - 62px)
+}
+.lecturer-portrait:after {
+  width:82px;
+  height:82px;
+  top:37px;
+  left:calc(50% - 41px)
+}
+.lecturer-portrait>span {
+  width:54px;
+  height:54px;
+  font-size:17px
+}
+.lecturer-info {
+  padding:12px
+}
+.lecturer-info h3 {
+  font-size:13px
+}
+.lecturer-info p {
+  font-size:9px
+}
+
+}
+
+/* Lecturer image slots and initials fallback */
+.lecturer-photo {
+  position:absolute;
+  inset:0;
+  z-index:2;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .3s ease
+}
+.lecturer-portrait.photo-loaded .lecturer-photo {
+  opacity:1
+}
+.lecturer-initials {
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:rgba(255,255,255,.82);
+  color:var(--navy);
+  font:800 22px Manrope,sans-serif;
+  box-shadow:0 8px 25px rgba(16,42,67,.12)
+}
+.lecturer-portrait.photo-loaded .lecturer-initials,.lecturer-portrait.photo-loaded>small {
+  display:none
+}
+.lecturer-portrait.photo-loaded:before,.lecturer-portrait.photo-loaded:after {
+  display:none
+}
+
+@media(max-width:420px) {
+  .lecturer-initials {
+  width:54px;
+  height:54px;
+  font-size:17px
+}
+
+}
+
+/* University crest in the shared header and footer brand */
+.brand-logo {
+  display:block;
+  width:46px;
+  height:46px;
+  flex:none;
+  object-fit:contain;
+  border-radius:8px;
+  background:#fff
+}
+
+.lecturer-photo.photo-akol {
+  object-position:center 24%
+}
+
+.lecturer-photo.photo-johnson {
+  object-position:center 32%
+}
+
+@media(max-width:720px) {
+  .brand-logo {
+  width:42px;
+  height:42px
+}
+
+}
+
+
+/* Refreshed color system and polished card details */
+:root {
+  --ink:#18324b;
+  --muted:#63798e;
+  --navy:#102c48;
+  --blue:#3478df;
+  --pale:#f2f7fc;
+  --line:#dce8f2;
+  --gold:#f5bd4f;
+  --teal:#25a78c;
+  --violet:#8061d8;
+  --shadow:0 18px 46px rgba(23,58,91,.10)
+}
+
+body {
+  background:#fbfdff;
+  color:var(--ink)
+}
+.site-header {
+  background:rgba(255,255,255,.96);
+  box-shadow:0 4px 18px rgba(18,48,77,.045);
+  backdrop-filter:blur(12px)
+}
+.brand-mark {
+  background:linear-gradient(145deg,#143858,#3478df);
+  color:#fff;
+  box-shadow:0 5px 14px rgba(52,120,223,.18)
+}
+
+.hero {
+  background:radial-gradient(ellipse at 78% 25%,rgba(52,120,223,.30),transparent 38%),linear-gradient(120deg,#102c48 0%,#173d61 55%,#205782 100%)
+}
+.hero:before {
+  opacity:.55
+}
+.hero-glow {
+  background:radial-gradient(circle,rgba(48,162,181,.27),transparent 68%)
+}
+.button {
+  background:linear-gradient(110deg,#3478df,#4e91ed);
+  border-color:#3478df;
+  box-shadow:0 8px 20px rgba(52,120,223,.16)
+}
+.button:hover {
+  background:linear-gradient(110deg,#2866c5,#3478df)
+}
+
+.stats-strip {
+  background:linear-gradient(90deg,#f6fbff,#fff,#f4fbfa)
+}
+.stats-grid strong {
+  color:#2865ad
+}
+.programs-section {
+  background:linear-gradient(180deg,#f3f8fd,#f8fbfe)
+}
+.program-card {
+  border-color:#e1eaf3;
+  box-shadow:0 8px 24px rgba(23,58,91,.04)
+}
+.program-card:nth-child(4n+1) .program-icon {
+  background:#e5efff;
+  color:#3478df
+}
+.program-card:nth-child(4n+2) .program-icon {
+  background:#f0eaff;
+  color:#8061d8
+}
+.program-card:nth-child(4n+3) .program-icon {
+  background:#e3f6f0;
+  color:#218c74
+}
+.program-card:nth-child(4n) .program-icon {
+  background:#fff2dc;
+  color:#c58718
+}
+.experience-art {
+  background:radial-gradient(circle at 70% 20%,#e4f4f5,#e9efff 55%,#f6f8ff)
+}
+.portal-section {
+  background:radial-gradient(ellipse at 80% 20%,rgba(44,137,178,.3),transparent 40%),linear-gradient(120deg,#102c48,#183e61)
+}
+
+.student-workspace {
+  background:linear-gradient(145deg,#eef5fc 0%,#f5f8fd 48%,#eff8f7 100%);
+  position:relative;
+  overflow:hidden
+}
+.student-workspace:before {
+  content:"";
+  position:absolute;
+  width:380px;
+  height:380px;
+  top:-220px;
+  right:-110px;
+  border-radius:50%;
+  background:rgba(68,137,221,.10);
+  pointer-events:none
+}
+.workspace-shell {
+  position:relative
+}
+.workspace-side {
+  border:1px solid #dce8f3;
+  box-shadow:0 16px 38px rgba(28,71,109,.08)
+}
+.workspace-avatar {
+  background:linear-gradient(145deg,#3478df,#35b69c);
+  color:#fff;
+  box-shadow:0 5px 14px rgba(52,120,223,.2)
+}
+.workspace-menu button.active {
+  background:linear-gradient(90deg,#e8f1ff,#eef7ff);
+  box-shadow:inset 3px 0 #3478df;
+  color:#245da6
+}
+.workspace-help {
+  background:linear-gradient(135deg,#eaf6f4,#eef5ff);
+  border:1px solid #dcefea
+}
+.workspace-help strong {
+  color:#247d70
+}
+
+.workspace-stat {
+  border:1px solid #deebf4;
+  box-shadow:0 9px 22px rgba(28,71,109,.045);
+  background:linear-gradient(145deg,#fff,#fbfdff)
+}
+.workspace-stat:nth-child(1) {
+  border-top:3px solid #4385df
+}
+.workspace-stat:nth-child(2) {
+  border-top:3px solid #36a98f
+}
+.workspace-stat:nth-child(3) {
+  border-top:3px solid #eeae42
+}
+.workspace-stat strong {
+  color:#245d9d
+}
+.workspace-panel {
+  border:1px solid #deebf4;
+  box-shadow:0 12px 30px rgba(28,71,109,.055);
+  background:rgba(255,255,255,.96)
+}
+.workspace-panel-heading h3 {
+  color:#1c3b59
+}
+.workspace-action {
+  background:#eaf2ff;
+  color:#2e68bb;
+  transition:background .2s,transform .2s
+}
+.workspace-action:hover {
+  background:#dceaff;
+  transform:translateY(-1px)
+}
+
+.workspace-course:nth-of-type(2) .course-mark {
+  background:#e9e4ff;
+  color:#7758c7
+}
+.workspace-course:nth-of-type(3) .course-mark {
+  background:#e2f5ef;
+  color:#218b70
+}
+.workspace-course:nth-of-type(4) .course-mark {
+  background:#fff1da;
+  color:#bd811a
+}
+.course-progress i {
+  background:#e8edf4
+}
+.workspace-course:nth-of-type(2) .course-progress b {
+  background:linear-gradient(90deg,#8664db,#b093f1)
+}
+.workspace-course:nth-of-type(3) .course-progress b {
+  background:linear-gradient(90deg,#24a488,#65c5a7)
+}
+.workspace-course:nth-of-type(4) .course-progress b {
+  background:linear-gradient(90deg,#e5a632,#f1ca6b)
+}
+.assignment-row:nth-of-type(2) .assignment-icon {
+  background:#e8efff;
+  color:#3478df
+}
+.assignment-row:nth-of-type(3) .assignment-icon {
+  background:#e5f5ef;
+  color:#218b70
+}
+.assignment-row:nth-of-type(4) .assignment-icon {
+  background:#fff2dc;
+  color:#bd811a
+}
+.assignment-date {
+  padding:4px 7px;
+  border-radius:20px;
+  background:#fff3dc;
+  color:#a66b10
+}
+
+.workspace-search {
+  background:#f8fbff;
+  border-color:#dce8f2
+}
+.workspace-search:focus {
+  outline:3px solid rgba(52,120,223,.15);
+  border-color:#3478df
+}
+.result-table th {
+  background:#eef5fb;
+  color:#4c6983
+}
+.result-table tbody tr:nth-child(even) {
+  background:#f8fbfe
+}
+.learning-hub {
+  background:linear-gradient(180deg,#fff,#f5f8fc)
+}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
+  outline:3px solid rgba(52,120,223,.35);
+  outline-offset:2px
+}
+
+@media(max-width:620px) {
+  .workspace-stat {
+  padding:13px
+}
+.student-workspace:before {
+  width:240px;
+  height:240px;
+  top:-150px;
+  right:-120px
+}
+
+}
+
+/* Soft color wash behind the learning experience */
+html {
+  background:#edf4fc
+}
+body {
+  background-color:#edf4fc!important;
+  background-image:linear-gradient(135deg,#eaf3ff 0%,#f4f7fc 48%,#e8f5f1 100%)!important;
+  background-attachment:fixed
+}
+.stats-strip,.experience-section,.learning-hub {
+  background-color:rgba(255,255,255,.78)
+}
+
+/* Campus photo background for the Digital Campus feature gallery */
+.learning-hub {
+  background:linear-gradient(rgba(240,247,252,.82),rgba(240,247,252,.86)),url("600278579_122213432672055097_1698824923176520904_n.jpg") center center/cover no-repeat!important
+}
+
+/* Photo avatar for the student-space profile */
+.workspace-avatar {
+  padding:0;
+  object-fit:cover;
+  overflow:hidden;
+  border:2px solid #fff;
+  box-shadow:0 4px 12px rgba(31,91,144,.2)
+}
+
+/* Computer science library */
+.library-panel {
+  padding:20px
+}
+.library-panel .workspace-panel-heading {
+  align-items:flex-start
+}
+.library-intro {
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.6
+}
+.library-count {
+  white-space:nowrap;
+  color:#718397;
+  font-size:10px
+}
+.library-controls {
+  display:grid;
+  gap:8px;
+  margin-bottom:12px
+}
+.library-controls .workspace-search {
+  margin:0
+}
+.library-filters {
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap
+}
+.library-filters button {
+  padding:7px 10px;
+  border:1px solid #dce5ed;
+  border-radius:20px;
+  background:#fff;
+  color:#586e81;
+  font-size:10px;
+  font-weight:700;
+  cursor:pointer
+}
+.library-filters button:hover,.library-filters button.active {
+  border-color:#c6d8fa;
+  background:#eaf2ff;
+  color:#2862b0
+}
+.library-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px
+}
+.library-book {
+  display:flex;
+  flex-direction:column;
+  min-height:168px;
+  padding:14px;
+  border:1px solid #e3ebf3;
+  border-radius:11px;
+  background:#fff
+}
+.book-year {
+  color:#4471c7;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.09em
+}
+.library-book h4 {
+  margin:7px 0 4px;
+  font:700 13px/1.35 Manrope,sans-serif
+}
+.library-book p {
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.55
+}
+.library-book a {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:auto;
+  padding-top:8px;
+  border-top:1px solid #edf1f5;
+  color:#2e63b7;
+  font-size:10px;
+  font-weight:700;
+  text-decoration:none
+}
+.library-book a:hover {
+  text-decoration:underline
+}
+.library-empty {
+  display:none
+}
+
+@media(max-width:620px) {
+  .library-panel {
+  padding:14px
+}
+.library-grid {
+  grid-template-columns:1fr
+}
+.library-panel .workspace-panel-heading {
+  gap:5px
+}
+.library-book {
+  min-height:unset
+}
+
+}
+
+</style>
+
+<body>
+  <a class="skip-link" href="#main">leave the content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Starford University home">
+        <img class="brand-logo" src="starford.jpg" alt="Starford International University crest"><span><strong>STARFORD</strong><small>INTERNATIONAL UNIVERSITY</small></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span><span class="sr-only">Toggle navigation</span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#student-dashboard">My Learning</a><a href="#programs">Programs</a><a href="#experience">Learning</a><a href="#lecturers">Lecturers</a><a href="#learning-hub">Learning Hub</a><a href="#registration">Register</a><a href="#payment">Fees</a><a href="#support">Support</a>
+        <a class="nav-login" href="portal.html">Log in</a><a class="button button-small" href="#registration">Get started <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Your next step starts here.</p>
+          <h1>Make your next<br>chapter <span>count.</span></h1>
+          <p class="hero-lede">You do not have to figure it all out alone. Find your courses, connect with your lecturers, and take your studies one step at a time.</p>
+          <div class="hero-actions"><a class="button" href="#programs">Find your course <span aria-hidden="true">→</span></a><a class="text-link" href="#experience"><span class="play-icon" aria-hidden="true">▶</span> See how it works</a></div>
+          <div class="hero-proof"><div class="avatar-stack" aria-hidden="true"><span>JM</span><span>AB</span><span>KO</span><span>+</span></div><p><strong>Your journey matters</strong><br>Learn at your pace. We are here to help.</p></div>
+        </div>
+        <div class="hero-visual" aria-label="A preview of the student learning dashboard">
+          <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+          <div class="dashboard-preview">
+            <div class="preview-top"><div><span class="preview-label">STUDENT PORTAL</span><h2>Good to see you <span aria-hidden="true">✦</span></h2></div><div class="preview-avatar">A</div></div>
+            <div class="progress-panel"><div class="progress-head"><span>Semester progress</span><strong>68%</strong></div><div class="progress-track"><span></span></div><div class="progress-foot"><span>12 credits completed</span><span>18 total</span></div></div>
+            <div class="preview-section-head"><strong>Continue learning</strong><a href="#programs">View all</a></div>
+            <article class="mini-course"><span class="mini-icon icon-blue">⌘</span><span class="mini-course-copy"><strong>Software Project Management</strong><small>Module 04 · 8 lessons</small></span><span class="mini-arrow">→</span></article>
+            <article class="mini-course"><span class="mini-icon icon-gold">◉</span><span class="mini-course-copy"><strong>Mobile Computing</strong><small>Module 02 · 6 lessons</small></span><span class="mini-arrow">→</span></article>
+            <div class="upcoming"><span class="calendar-icon">▦</span><span><strong>Upcoming deadline</strong><small>Research proposal · Oct 12</small></span><span class="upcoming-pill">5 days</span></div>
+          </div>
+          <div class="floating-note"><span class="note-check">✓</span><span><strong>You're on track</strong><small>Keep up the great work</small></span></div>
+        </div>
+      </div>
+      <div class="container hero-bottom"><span>LEARN WITH PURPOSE</span><span class="hero-line"></span><span>GROW WITH CONFIDENCE</span><span class="hero-line"></span><span>BUILD WHAT'S NEXT</span></div>
+    </section>
+
+    <section class="student-workspace" id="student-dashboard" aria-labelledby="workspace-title"><div class="container workspace-shell">
+      <aside class="workspace-side"><div class="workspace-welcome"><img class="workspace-avatar" src="745019905_1033357625721611_5013818649615093479_n.jpg" alt="Student profile photo"><div><strong>Student space</strong><small>Starford learner</small></div></div><nav class="workspace-menu" aria-label="Workspace sections"><button class="active" data-workspace-tab="overview">Overview</button><button data-workspace-tab="courses">My courses</button><button data-workspace-tab="assignments">Assignments</button><button data-workspace-tab="results">Results</button><button data-workspace-tab="schedule">Schedule</button><button data-workspace-tab="community">Community</button><button data-workspace-tab="library">Library</button></nav><p class="workspace-help"><strong>Need a hand?</strong>If you are stuck, you are not alone. Your faculty office can help with access, classes, and support.</p></aside>
+      <div class="workspace-main"><div class="workspace-heading"><div><p class="eyebrow eyebrow-dark">YOUR DIGITAL CAMPUS</p><h2 id="workspace-title">Welcome back. What would you like to work on today?</h2></div><span>A quick look at your study space</span></div>
+      <section class="workspace-tab active" data-tab-panel="overview"><div class="workspace-stats"><div class="workspace-stat"><span>Courses in progress</span><strong>04</strong><small>Every step counts</small></div><div class="workspace-stat"><span>Learning progress</span><strong>68%</strong><small>Across active courses</small></div><div class="workspace-stat"><span>Upcoming tasks</span><strong>03</strong><small>See what is coming up</small></div></div><div class="workspace-columns">
+      <section class="workspace-panel"><div class="workspace-panel-heading"><h3>My courses</h3><button class="workspace-action" data-go-tab="courses">Browse courses</button></div><label class="sr-only" for="workspace-course-search">Search courses</label><input class="workspace-search" id="workspace-course-search" type="search" placeholder="Search your courses…"><div class="workspace-course-list"><article class="workspace-course" data-course-name="software project management"><span class="course-mark">⌘</span><div><strong>Software Project Management</strong><small>SPM 401 · Project planning</small></div><div class="course-progress">72%<i><b style="width:72%"></b></i></div></article><article class="workspace-course" data-course-name="mobile computing"><span class="course-mark">▣</span><div><strong>Mobile Computing</strong><small>MC 402 · Mobile interfaces</small></div><div class="course-progress">61%<i><b style="width:61%"></b></i></div></article><article class="workspace-course" data-course-name="network systems design"><span class="course-mark">⌁</span><div><strong>Network Systems Design</strong><small>NSDM 403 · Network security</small></div><div class="course-progress">84%<i><b style="width:84%"></b></i></div></article><article class="workspace-course" data-course-name="research methodology"><span class="course-mark">✎</span><div><strong>Research Methodology</strong><small>RM 405 · Proposal writing</small></div><div class="course-progress">45%<i><b style="width:45%"></b></i></div></article></div><p class="workspace-empty" id="course-empty">We could not find a course matching that. Try a different search.</p></section>
+      <section class="workspace-panel"><div class="workspace-panel-heading"><h3>Coming up next</h3><button class="workspace-action" data-go-tab="assignments">View all</button></div><div class="assignment-row"><span class="assignment-icon">✎</span><div><strong>Project plan draft</strong><small>Software Project Management</small></div><span class="assignment-date">Oct 12</span></div><div class="assignment-row"><span class="assignment-icon">▤</span><div><strong>Research proposal</strong><small>Research Methodology</small></div><span class="assignment-date">Oct 16</span></div><div class="assignment-row"><span class="assignment-icon">◷</span><div><strong>Network review quiz</strong><small>Network Systems Design</small></div><span class="assignment-date">Oct 20</span></div><p class="workspace-note">These dates are examples. Check with your lecturer for the latest deadlines.</p></section></div></section>
+      <section class="workspace-tab" data-tab-panel="courses"><section class="workspace-panel"><div class="workspace-panel-heading"><h3>Course catalog</h3><a href="#programs">Explore programs →</a></div><p class="section-intro">Looking for your next course? Browse the options, then ask your faculty team if you would like help choosing or enrolling.</p><div class="program-grid"><article class="program-card"><span class="program-tag">SPM 401</span><h3>Software Project Management</h3><p>Planning, teamwork, delivery, and quality.</p><a class="program-link" href="#registration">Ask about enrollment →</a></article><article class="program-card"><span class="program-tag">MC 402</span><h3>Mobile Computing</h3><p>Mobile platforms, application design, and services.</p><a class="program-link" href="#registration">Ask about enrollment →</a></article><article class="program-card"><span class="program-tag">NSDM 403</span><h3>Network Systems Design</h3><p>Network architecture, systems, and security.</p><a class="program-link" href="#registration">Ask about enrollment →</a></article></div></section></section>
+      <section class="workspace-tab" data-tab-panel="assignments"><section class="workspace-panel"><div class="workspace-panel-heading"><h3>Your assignments</h3><span>Your lecturer has the latest details</span></div><div class="assignment-row"><span class="assignment-icon">✎</span><div><strong>Project plan draft</strong><small>Software Project Management · Not submitted</small></div><span class="assignment-date">Oct 12</span></div><div class="assignment-row"><span class="assignment-icon">▤</span><div><strong>Research proposal</strong><small>Research Methodology · Proposal outline</small></div><span class="assignment-date">Oct 16</span></div><div class="assignment-row"><span class="assignment-icon">◷</span><div><strong>Network review quiz</strong><small>Network Systems Design · Practice assessment</small></div><span class="assignment-date">Oct 20</span></div><p class="workspace-note">Sample activities only. No assignment is submitted or graded here.</p></section></section>
+      <section class="workspace-tab" data-tab-panel="results"><section class="workspace-panel"><div class="workspace-panel-heading"><h3>Academic results</h3><button class="workspace-action" id="print-results">Print results</button></div><div class="workspace-columns"><div class="workspace-stat"><span>Semester average</span><strong>—</strong><small>Not connected</small></div><div class="workspace-stat"><span>Overall average</span><strong>—</strong><small>Not connected</small></div></div><table class="result-table"><thead><tr><th>Course</th><th>Official result</th><th>Status</th></tr></thead><tbody><tr><td>Software Project Management</td><td>Contact faculty</td><td>Not connected</td></tr><tr><td>Mobile Computing</td><td>Contact faculty</td><td>Not connected</td></tr><tr><td>Network Systems Design</td><td>Contact faculty</td><td>Not connected</td></tr></tbody></table><p class="workspace-note">Official marks and GPA are private records. Connect an authenticated account to display results.</p></section></section>
+      <section class="workspace-tab" data-tab-panel="schedule"><section class="workspace-panel"><div class="workspace-panel-heading"><h3>Study schedule</h3><span>Sample weekly plan</span></div><div class="assignment-row"><span class="assignment-icon">▦</span><div><strong>Software Project Management</strong><small>Monday · Review planning notes</small></div></div><div class="assignment-row"><span class="assignment-icon">▦</span><div><strong>Mobile Computing</strong><small>Wednesday · Continue interface lesson</small></div></div><div class="assignment-row"><span class="assignment-icon">▦</span><div><strong>Research Methodology</strong><small>Friday · Prepare proposal outline</small></div></div><p class="workspace-note">For the confirmed class timetable, please check with your faculty.</p></section></section>
+      <section class="workspace-tab" data-tab-panel="community"><section class="workspace-panel"><div class="workspace-panel-heading"><h3>Campus community</h3><span>Stay connected</span></div><div class="assignment-row"><span class="assignment-icon">✉</span><div><strong>Course announcements</strong><small>Your lecturer can point you to the right course group.</small></div></div><div class="assignment-row"><span class="assignment-icon">♙</span><div><strong>Student support</strong><small>Contact the faculty office for learning help.</small></div></div><div class="assignment-row"><span class="assignment-icon">◎</span><div><strong>Study groups</strong><small>Join your classmates through the university channels your faculty recommends.</small></div></div></section></section>
+      <section class="workspace-tab" data-tab-panel="library" aria-labelledby="library-title"><section class="workspace-panel library-panel"><div class="workspace-panel-heading"><div><h3 id="library-title">Computer Science & IT Library</h3><p class="library-intro">A starter reading list for years 1–4. Choose a year or search by title, topic, or author.</p></div><span class="library-count" id="library-count" aria-live="polite">16 books</span></div><div class="library-controls"><label class="sr-only" for="library-search">Search the library</label><input class="workspace-search" id="library-search" type="search" placeholder="Search books, topics, or authors…"><div class="library-filters" role="group" aria-label="Filter books by year"><button class="active" type="button" data-library-year="all" aria-pressed="true">All years</button><button type="button" data-library-year="1" aria-pressed="false">Year 1</button><button type="button" data-library-year="2" aria-pressed="false">Year 2</button><button type="button" data-library-year="3" aria-pressed="false">Year 3</button><button type="button" data-library-year="4" aria-pressed="false">Year 4</button></div></div>
+        <div class="library-grid" id="library-grid">
+          <article class="library-book" data-year="1" data-search="think python allen downey programming python introduction"><span class="book-year">YEAR 1 · PROGRAMMING</span><h4>Think Python, 2nd Edition</h4><p>Allen B. Downey · Learn programming concepts through Python.</p><a href="https://greenteapress.com/wp/think-python-2e/" target="_blank" rel="noopener">Read online free <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="1" data-search="python for everybody charles severance programming data"><span class="book-year">YEAR 1 · PROGRAMMING</span><h4>Python for Everybody</h4><p>Charles Severance · A gentle introduction to Python and data.</p><a href="https://www.py4e.com/book" target="_blank" rel="noopener">Read online free <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="1" data-search="openstax college algebra mathematics"><span class="book-year">YEAR 1 · MATHEMATICS</span><h4>College Algebra 2e</h4><p>Jay Abramson · Open textbook for foundational mathematics.</p><a href="https://openstax.org/details/books/college-algebra-2e" target="_blank" rel="noopener">Read online free <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="1" data-search="nand2tetris elements computing systems hardware software architecture"><span class="book-year">YEAR 1 · COMPUTER SYSTEMS</span><h4>The Elements of Computing Systems</h4><p>Noam Nisan & Shimon Schocken · Build a computer from logic gates upward.</p><a href="https://www.nand2tetris.org/book" target="_blank" rel="noopener">Book and course resources <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="2" data-search="think java allen downey programming object oriented"><span class="book-year">YEAR 2 · PROGRAMMING</span><h4>Think Java, 2nd Edition</h4><p>Allen B. Downey & Chris Mayfield · Object-oriented programming and Java.</p><a href="https://greenteapress.com/wp/think-java-2e/" target="_blank" rel="noopener">Read online free <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="2" data-search="open data structures pat morin algorithms data structures"><span class="book-year">YEAR 2 · DATA STRUCTURES</span><h4>Open Data Structures</h4><p>Pat Morin · Data structures and algorithms with clear implementations.</p><a href="https://opendatastructures.org/" target="_blank" rel="noopener">Read online free <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="2" data-search="database system concepts silberschatz database"><span class="book-year">YEAR 2 · DATABASES</span><h4>Database System Concepts</h4><p>Abraham Silberschatz, Henry Korth & S. Sudarshan · Database fundamentals.</p><a href="https://www.db-book.com/" target="_blank" rel="noopener">Visit companion site <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="2" data-search="computer networking top down approach kurose ross networks"><span class="book-year">YEAR 2 · NETWORKING</span><h4>Computer Networking: A Top-Down Approach</h4><p>James Kurose & Keith Ross · Networking concepts and Internet protocols.</p><a href="https://gaia.cs.umass.edu/kurose_ross/index.php" target="_blank" rel="noopener">Visit author resources <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="3" data-search="operating systems three easy pieces remzi arpaci dussau systems"><span class="book-year">YEAR 3 · OPERATING SYSTEMS</span><h4>Operating Systems: Three Easy Pieces</h4><p>Remzi H. & Andrea C. Arpaci-Dusseau · Virtualization, concurrency, and persistence.</p><a href="https://pages.cs.wisc.edu/~remzi/OSTEP/" target="_blank" rel="noopener">Read online free <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="3" data-search="computer systems programmer perspective bryant ohallaron architecture"><span class="book-year">YEAR 3 · COMPUTER SYSTEMS</span><h4>Computer Systems: A Programmer’s Perspective</h4><p>Randal E. Bryant & David R. O’Hallaron · How programs run on modern computers.</p><a href="https://csapp.cs.cmu.edu/" target="_blank" rel="noopener">Visit author resources <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="3" data-search="linux command line william shotts operating systems"><span class="book-year">YEAR 3 · LINUX & SYSTEMS</span><h4>The Linux Command Line</h4><p>William Shotts · Practical command-line skills and shell scripting.</p><a href="https://linuxcommand.org/tlcl.php" target="_blank" rel="noopener">Read online free <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="3" data-search="software engineering sommerville software design"><span class="book-year">YEAR 3 · SOFTWARE ENGINEERING</span><h4>Software Engineering</h4><p>Ian Sommerville · Software processes, design, testing, and maintenance.</p><a href="https://iansommerville.com/software-engineering-book/" target="_blank" rel="noopener">Visit author resources <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="4" data-search="introduction algorithms clrs cormen algorithms"><span class="book-year">YEAR 4 · ALGORITHMS</span><h4>Introduction to Algorithms, 4th Edition</h4><p>Thomas H. Cormen et al. · Advanced algorithms and analysis.</p><a href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener">View publisher page <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="4" data-search="designing data intensive applications martin kleppmann distributed systems"><span class="book-year">YEAR 4 · DISTRIBUTED SYSTEMS</span><h4>Designing Data-Intensive Applications</h4><p>Martin Kleppmann · Data systems, reliability, scalability, and architecture.</p><a href="https://dataintensive.net/" target="_blank" rel="noopener">View book resources <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="4" data-search="cryptography network security william stallings security"><span class="book-year">YEAR 4 · SECURITY</span><h4>Cryptography and Network Security</h4><p>William Stallings · Security principles, cryptography, and network defense.</p><a href="https://www.pearson.com/en-us/subject-catalog/p/cryptography-and-network-security-principles-and-practice/P200000003292/9780135764037" target="_blank" rel="noopener">View publisher page <span aria-hidden="true">↗</span></a></article>
+          <article class="library-book" data-year="4" data-search="research methods computer science methodology"><span class="book-year">YEAR 4 · RESEARCH</span><h4>Research Methods for Computer Science</h4><p>Learn to plan a project, evaluate evidence, and present technical research.</p><a href="https://ocw.mit.edu/search/?q=research%20methods%20computer%20science" target="_blank" rel="noopener">Browse MIT OpenCourseWare <span aria-hidden="true">↗</span></a></article>
+        </div><p class="workspace-empty" id="library-empty">No books match your search. Try another title or year.</p><p class="workspace-note">Reading levels are a suggested guide, not an official Starford syllabus. Some publisher links provide book information rather than a free download. Follow course guidance and copyright rules.</p></section></section></div></div></section>
+    <section class="stats-strip" aria-label="University learning highlights"><div class="container stats-grid"><div><strong>Flexible</strong><span>Learn on your schedule</span></div><div><strong>Connected</strong><span>Students and lecturers, together</span></div><div><strong>Supported</strong><span>Help at every step</span></div><div><strong>Future-ready</strong><span>Skills for a changing world</span></div></div></section>
+
+    <section class="section programs-section" id="programs">
+      <div class="container"><div class="section-heading"><div><p class="eyebrow eyebrow-dark">FIND YOUR DIRECTION</p><h2>Learning that moves<br><span>you forward.</span></h2></div><p>Not sure where to begin? Explore these learning areas, then talk with your faculty team about the right next step.</p></div>
+        <div class="program-grid">
+          <article class="program-card"><div class="program-top"><span class="program-icon blue">⌘</span><span class="program-tag">COMPUTING</span></div><h3>Software Project Management</h3><p>Plan, lead, and deliver successful software projects with modern methods and practical teamwork.</p><div class="program-meta"><span>SPM scc 2315</span><span>Semester One</span></div><a href="#portal" class="program-link">View course <span aria-hidden="true">↗</span></a></article>
+          <article class="program-card"><div class="program-top"><span class="program-icon violet">◉</span><span class="program-tag">COMPUTING</span></div><h3>Mobile Computing</h3><p>Understand mobile platforms, wireless networks, and the systems that keep people connected.</p><div class="program-meta"><span>MC scc 2313</span><span>Semester One</span></div><a href="#portal" class="program-link">View course <span aria-hidden="true">↗</span></a></article>
+          <article class="program-card"><div class="program-top"><span class="program-icon mint">⌘</span><span class="program-tag">ENGINEERING</span></div><h3>Network Systems Design</h3><p>Build a strong foundation in planning, securing, and managing reliable network systems.</p><div class="program-meta"><span>NSDM scc 2314</span><span>Semester One</span></div><a href="#portal" class="program-link">View course <span aria-hidden="true">↗</span></a></article>
+          <article class="program-card"><div class="program-top"><span class="program-icon amber">▧</span><span class="program-tag">RESEARCH</span></div><h3>Research Methodology</h3><p>Turn questions into sound research through thoughtful design, evidence, and analysis.</p><div class="program-meta"><span>RM scc 2315</span><span>Semester One</span></div><a href="#portal" class="program-link">View course <span aria-hidden="true">↗</span></a></article>
+        </div>
+        <div class="center-action"><a class="button button-outline" href="#portal">Browse all courses <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
+    <section class="section lecturers-section" id="lecturers">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow eyebrow-dark">MEET YOUR LECTURERS</p><h2>Learn from people<br><span>who inspire.</span></h2></div><p>Meet the lecturers who will help you make sense of new ideas, build practical skills, and keep moving when a topic gets challenging.</p></div>
+        <div class="lecturer-grid">
+          <article class="lecturer-card"><div class="lecturer-portrait portrait-blue"><img class="lecturer-photo" src="images/lecturers/dr-jane-evans.jpg" alt="Dr Jane Evans" data-initials="JE"><span class="lecturer-initials">JE</span><small>ADD PHOTO: dr-jane-evans.jpg</small></div><div class="lecturer-info"><h3>Dr Jane Evans</h3><p class="lecturer-role">Department of Computer Science &amp; IT · Software Quality Assurance</p><p>Guides students in software reliability, testing, and quality practices.</p></div></article>
+          <article class="lecturer-card"><div class="lecturer-portrait portrait-gold"><img class="lecturer-photo" src="images/lecturers/mr-abit-biar.jpg" alt="Mr Abit Biar" data-initials="AB"><span class="lecturer-initials">AB</span><small>ADD PHOTO: mr-abit-biar.jpg</small></div><div class="lecturer-info"><h3>Mr Abit Biar</h3><p class="lecturer-role">Department of Computer Science &amp; IT · Project Management</p><p>Supports students in planning and delivering successful software projects.</p></div></article>
+          <article class="lecturer-card"><div class="lecturer-portrait portrait-green"><img class="lecturer-photo photo-akol" src="akol.jpeg" alt="Prof. Akol Mawien" data-initials="AM"><span class="lecturer-initials">AM</span><small>Prof. Akol Mawien</small></div><div class="lecturer-info"><h3>Prof. Akol Mawien</h3><p class="lecturer-role">Department of Computer Science &amp; IT · Computer Graphics</p><p>Introduces visual computing concepts and creative graphics techniques.</p></div></article>
+         <article class="lecturer-card"><div class="lecturer-portrait portrait-violet"><img class="lecturer-photo photo-johnson" src="johnson.jpeg" alt="Dr Johnson Atar" data-initials="JA"><span class="lecturer-initials">JA</span><small>Dr Johnson Atar</small></div><div class="lecturer-info"><h3>Dr Johnson Atar</h3><p class="lecturer-role">Department of Computer Science &amp; IT · Research Methodology</p><p>Helps students build sound research questions, methods, and analysis.</p></div></article>
+          <article class="lecturer-card"><div class="lecturer-portrait portrait-violet"><img class="lecturer-photo photo-john" src="src/main/resources/static/images/lecturers/john-asia.jpg" alt="John Asia" data-initials="JA"><span class="lecturer-initials">JA</span><small>John Asia</small></div><div class="lecturer-info"><h3>John Asia</h3><p class="lecturer-role">Department of Computer Science &amp; IT · Computer Networks and Data Communications</p><p>Supports students in designing, connecting, and managing computer networks and data communication systems.</p></div></article>
+          <article class="lecturer-card"><div class="lecturer-portrait portrait-gold"><img class="lecturer-photo photo-moses" src="moses-marial.jpeg" alt="Moses Marial" data-initials="MM"><span class="lecturer-initials">MM</span><small>Moses Marial</small></div><div class="lecturer-info"><h3>Moses Marial</h3><p class="lecturer-role">Department of Computer Science &amp; IT · Management Information Systems (MIS)</p><p>Supports students in understanding how information systems help organizations manage data and make decisions.</p></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="experience-section" id="experience"><div class="container experience-grid"><div class="experience-art"><div class="art-window"><div class="art-window-bar"><i></i><i></i><i></i><span>MY LEARNING SPACE</span></div><div class="art-content"><div class="art-side"><b></b><b></b><b></b><b></b></div><div class="art-main"><span class="art-kicker">WEEK 04 · COURSE OVERVIEW</span><strong>Learn at your<br>own pace.</strong><div class="art-lines"><i></i><i></i><i></i></div><div class="art-video"><span>▶</span><small>LECTURE 04 · 18 MIN</small></div></div></div></div><div class="art-badge"><span>✦</span><strong>One space<br>for your studies</strong></div></div><div class="experience-copy"><p class="eyebrow eyebrow-dark">YOUR LEARNING, CONNECTED</p><h2>Everything you need<br>to <span>keep growing.</span></h2><p class="section-intro">Your studies involve a lot of moving pieces. This space brings your courses, deadlines, and learning resources together so it is easier to focus on what comes next.</p><ul class="benefit-list"><li><span>✓</span><div><strong>Course materials in one place</strong><p>Find lecture notes, readings, and recordings organized by course.</p></div></li><li><span>✓</span><div><strong>Clear deadlines and feedback</strong><p>Keep track of assignments, submissions, and lecturer comments.</p></div></li><li><span>✓</span><div><strong>Stay connected to your community</strong><p>Get announcements and know where to go when you need support.</p></div></li></ul><a class="text-link dark-link" href="#portal">Explore the student portal <span aria-hidden="true">→</span></a></div></div></section>
+
+
+    <section class="section learning-hub" id="learning-hub">
+      <div class="container">
+        <div class="hub-intro"><p class="eyebrow eyebrow-dark">THE DIGITAL CAMPUS</p><h2>One platform for the<br><span>whole learning journey.</span></h2><p>Tools for students, lecturers, and university administrators. Search the modules to find a feature.</p></div>
+        <label class="hub-search" for="hub-search"><span class="search-symbol" aria-hidden="true">⌕</span><input id="hub-search" type="search" placeholder="Search courses, materials, exams, lecturers…" autocomplete="off"><kbd>SEARCH</kbd></label>
+        <div class="hub-grid" id="hub-grid">
+          <article class="hub-card" data-search="Lecturer Account FACULTY WORKSPACE Manage teaching activity and course delivery. Lecturer registration and sign-in Lecturer dashboard Manage courses and upload materials"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">♙</span><div><h3>Lecturer Account</h3><span class="hub-kicker">FACULTY WORKSPACE</span></div></div><p>Manage teaching activity and course delivery.</p><ul><li>Lecturer registration and sign-in</li><li>Lecturer dashboard</li><li>Manage courses and upload materials</li></ul></article>
+          <article class="hub-card" data-search="Courses COURSE CATALOG Help students find the right course and understand what they will learn. Course categories and units Course descriptions and lecturer information Learning objectives"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">▦</span><div><h3>Courses</h3><span class="hub-kicker">COURSE CATALOG</span></div></div><p>Help students find the right course and understand what they will learn.</p><ul><li>Course categories and units</li><li>Course descriptions and lecturer information</li><li>Learning objectives</li></ul></article>
+          <article class="hub-card" data-search="Learning Materials STUDY RESOURCES Keep essential learning resources organized by course. PDF notes and documents PowerPoint presentations and e-books External links and learning resources"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">▤</span><div><h3>Learning Materials</h3><span class="hub-kicker">STUDY RESOURCES</span></div></div><p>Keep essential learning resources organized by course.</p><ul><li>PDF notes and documents</li><li>PowerPoint presentations and e-books</li><li>External links and learning resources</li></ul></article>
+          <article class="hub-card" data-search="Video Learning LECTURES ON DEMAND Support flexible learning with recorded teaching content. Recorded lectures and video lessons Video playlists by course or topic Learning progress tracking"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">▶</span><div><h3>Video Learning</h3><span class="hub-kicker">LECTURES ON DEMAND</span></div></div><p>Support flexible learning with recorded teaching content.</p><ul><li>Recorded lectures and video lessons</li><li>Video playlists by course or topic</li><li>Learning progress tracking</li></ul></article>
+          <article class="hub-card" data-search="Assignments COURSEWORK Share tasks and return clear, timely feedback. Create assignments and instructions Submission uploads and deadlines Marks and lecturer feedback"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">✎</span><div><h3>Assignments</h3><span class="hub-kicker">COURSEWORK</span></div></div><p>Share tasks and return clear, timely feedback.</p><ul><li>Create assignments and instructions</li><li>Submission uploads and deadlines</li><li>Marks and lecturer feedback</li></ul></article>
+          <article class="hub-card" data-search="Quizzes PRACTICE & REVIEW Check understanding and give students quick feedback. Multiple-choice and true/false questions Automatic marking and quiz scores One attempt per student"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">☑</span><div><h3>Quizzes</h3><span class="hub-kicker">PRACTICE & REVIEW</span></div></div><p>Check understanding and give students quick feedback.</p><ul><li>Multiple-choice and true/false questions</li><li>Automatic marking and quiz scores</li><li>One attempt per student and assessment</li></ul></article>
+          <article class="hub-card" data-search="Online Examinations ASSESSMENT Deliver structured online assessments. Exam questions Open and close times Online submission Automatic multiple-choice marking and results"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">◷</span><div><h3>Online Examinations</h3><span class="hub-kicker">ASSESSMENT</span></div></div><p>Deliver structured online assessments.</p><ul><li>Exam questions with open and close times</li><li>Online submission</li><li>Automatic multiple-choice marking and results</li></ul></article>
+          <article class="hub-card" data-search="Progress & Results STUDENT RECORDS Give students a clear view of academic progress. Course progress and completion Quiz scores and assignment marks Examination results and overall performance"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">▥</span><div><h3>Progress & Results</h3><span class="hub-kicker">STUDENT RECORDS</span></div></div><p>Give students a clear view of academic progress.</p><ul><li>Course progress and completion</li><li>Quiz scores and assignment marks</li><li>Examination results and overall performance</li></ul></article>
+          <article class="hub-card" data-search="Communication CAMPUS COMMUNITY Connect students, lecturers, and course groups. Student–lecturer messaging Discussion forums and course discussions Announcements"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">✉</span><div><h3>Communication</h3><span class="hub-kicker">CAMPUS COMMUNITY</span></div></div><p>Connect students, lecturers, and course groups.</p><ul><li>Student–lecturer messaging</li><li>Discussion forums and course discussions</li><li>Announcements</li></ul></article>
+          <article class="hub-card" data-search="Notifications UPDATES & REMINDERS Help students stay aware of important activity. New-course notifications Assignment deadline reminders Quiz, exam, and lecturer announcement alerts"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">♧</span><div><h3>Notifications</h3><span class="hub-kicker">UPDATES & REMINDERS</span></div></div><p>Help students stay aware of important activity.</p><ul><li>New-course notifications</li><li>Assignment deadline reminders</li><li>Quiz, exam, and lecturer announcement alerts</li></ul></article>
+          <article class="hub-card" data-search="Search FIND IT FAST Find the right information across the learning platform. Search courses and lessons Search learning materials Search lecturers"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">⌕</span><div><h3>Search</h3><span class="hub-kicker">FIND IT FAST</span></div></div><p>Find the right information across the learning platform.</p><ul><li>Search courses and lessons</li><li>Search learning materials</li><li>Search lecturers</li></ul></article>
+          <article class="hub-card" data-search="Learning Schedule DATES & EVENTS Bring teaching activities and deadlines together. Course and live-class schedules Assignment deadlines Examination schedule"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">▦</span><div><h3>Learning Schedule</h3><span class="hub-kicker">DATES & EVENTS</span></div></div><p>Bring teaching activities and deadlines together.</p><ul><li>Course and live-class schedules</li><li>Assignment deadlines</li><li>Examination schedule</li></ul></article>
+          <article class="hub-card" data-search="Administration PLATFORM MANAGEMENT Give authorized university staff tools to operate the platform. Manage student and lecturer accounts Manage departments, courses, and fees Reports, audit history, and platform settings"><div class="hub-card-head"><span class="hub-icon" aria-hidden="true">⚙</span><div><h3>Administration</h3><span class="hub-kicker">PLATFORM MANAGEMENT</span></div></div><p>Give authorized university staff tools to operate the platform.</p><ul><li>Manage student and lecturer accounts</li><li>Manage departments, courses, and fees</li><li>Reports, audit history, and platform settings</li></ul></article>
+        </div>
+        <p class="hub-empty" id="hub-empty" role="status">We could not find that. Try another word, or ask your lecturer where to look.</p>
+        <div class="hub-disclaimer"><span aria-hidden="true">ⓘ</span><div><strong>Platform setup:</strong> The project now includes a Java server and PostgreSQL database for student accounts, courses, learning materials, assignments, assessments, results, attendance, messages, and notifications. Start the server to use these services. Payment processing still needs a university merchant account and provider credentials.</div></div>
+      </div>
+    </section>
+
+    <section class="section enrollment-section" id="registration">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow eyebrow-dark">ENROLLMENT & FEES</p><h2>Start your journey<br><span>at Starford.</span></h2></div><p>Ready to join us? Create your student account below. The course fees shown are examples, and online payments are not available yet.</p></div>
+        <div class="enrollment-grid">
+          <form class="enrollment-card" id="registration-form">
+            <div class="form-title"><span class="form-icon">01</span><div><h3>Create a student account</h3><p>We will use these details to set up your student account.</p></div></div>
+            <div class="field-grid">
+              <div class="field"><label for="student-name">Full name</label><input id="student-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required minlength="2"></div>
+              <div class="field"><label for="student-email">Email address</label><input id="student-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+              <div class="field"><label for="student-phone">Phone number</label><input id="student-phone" name="phone" type="tel" autocomplete="tel" placeholder="Include country code" required></div>
+              <div class="field"><label for="student-password">Create password</label><input id="student-password" name="password" type="password" autocomplete="new-password" minlength="10" required></div>
+              <div class="field"><label for="student-number">Student ID <span>(if returning)</span></label><input id="student-number" name="studentId" type="text" placeholder="Optional"></div>
+              <div class="field field-wide"><label for="study-program">Program of interest</label><select id="study-program" name="program" required><option value="">Choose a program</option><option>Software Project Management</option><option>Mobile Computing</option><option>Network Systems Design and Management</option><option>Computer Graphics</option><option>Research Methodology</option><option>Multimedia Systems</option><option>Software Reliability and Quality Assurance</option></select></div>
+              <div class="field field-wide"><label class="check-label"><input type="checkbox" required> I confirm these details are accurate and agree to be contacted about enrollment.</label></div>
+            </div>
+            <button class="button form-submit" type="submit">Create student account <span aria-hidden="true">→</span></button>
+            <p class="form-feedback" id="registration-message" aria-live="polite">Your student account is saved when this page is served by the Starford Java application.</p>
+          </form>
+          <form class="enrollment-card payment-card" id="payment-form">
+            <div class="form-title"><span class="form-icon gold-form-icon">02</span><div><h3>Course fee payment</h3><p>Online payment is not ready yet. Please contact the university finance office for current payment instructions.</p></div></div>
+            <div class="field"><label for="fee-course">Course</label><select id="fee-course" name="course" required><option value="">Select a course</option><option value="500000" data-course="Software Project Management">Software Project Management · SPM 401</option><option value="150000" data-course="Mobile Computing">Mobile Computing · MC 402</option><option value="200000" data-course="Network Systems Design and Management">Network Systems Design · NSDM 403</option><option value="300000" data-course="Research Methodology">Research Methodology · RM 405</option></select></div>
+            <div class="fee-summary" id="payment"><span>Displayed course fee <small>Confirm current fees with the university</small></span><strong id="fee-amount">Select a course</strong></div>
+            <div class="field"><label for="payment-method">Payment method</label><select id="payment-method" name="method" required><option value="">Choose a method</option><option>Mobile money</option><option>Bank card</option><option>Bank transfer</option></select></div>
+            <div class="field"><label for="payer-email">Payer email</label><input id="payer-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+            <button class="button form-submit" type="button" disabled aria-disabled="true">Payments unavailable</button>
+            <p class="form-feedback" id="payment-message" aria-live="polite">No payment is taken here. Contact the university finance office for approved payment instructions.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#primary-nav');
+
+if (menuButton && navigation) {
+  menuButton.addEventListener('click', () => {
+    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!isOpen));
+    navigation.classList.toggle('is-open', !isOpen);
+  });
+
+  navigation.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuButton.setAttribute('aria-expanded', 'false');
+      navigation.classList.remove('is-open');
+    });
+  });
+}
+
+const workspaceButtons = document.querySelectorAll('[data-workspace-tab]');
+const workspacePanels = document.querySelectorAll('[data-tab-panel]');
+workspaceButtons.forEach((button) => button.addEventListener('click', () => {
+  workspaceButtons.forEach((item) => item.classList.toggle('active', item === button));
+  workspacePanels.forEach((panel) => panel.classList.toggle('active', panel.dataset.tabPanel === button.dataset.workspaceTab));
+}));
+document.querySelectorAll('[data-go-tab]').forEach((button) => button.addEventListener('click', () => {
+  document.querySelector(`[data-workspace-tab="${button.dataset.goTab}"]`)?.click();
+}));
+const librarySearch = document.querySelector('#library-search');
+const libraryFilters = document.querySelectorAll('[data-library-year]');
+const libraryBooks = document.querySelectorAll('.library-book');
+let selectedLibraryYear = 'all';
+function filterLibrary() {
+  const query = (librarySearch?.value || '').trim().toLowerCase();
+  let visible = 0;
+  libraryBooks.forEach((book) => {
+    const matchesYear = selectedLibraryYear === 'all' || book.dataset.year === selectedLibraryYear;
+    const matchesText = (book.dataset.search + ' ' + book.textContent).toLowerCase().includes(query);
+    book.hidden = !(matchesYear && matchesText);
+    if (!book.hidden) visible++;
+  });
+  const count = document.querySelector('#library-count');
+  const empty = document.querySelector('#library-empty');
+  if (count) count.textContent = `${visible} ${visible === 1 ? 'book' : 'books'}`;
+  if (empty) empty.style.display = visible ? 'none' : 'block';
+}
+librarySearch?.addEventListener('input', filterLibrary);
+libraryFilters.forEach((button) => button.addEventListener('click', () => {
+  selectedLibraryYear = button.dataset.libraryYear;
+  libraryFilters.forEach((item) => {
+    const active = item === button;
+    item.classList.toggle('active', active);
+    item.setAttribute('aria-pressed', String(active));
+  });
+  filterLibrary();
+}));
+const courseSearch = document.querySelector('#workspace-course-search');
+if (courseSearch) courseSearch.addEventListener('input', () => {
+  const query = courseSearch.value.trim().toLowerCase();
+  let visible = 0;
+  document.querySelectorAll('.workspace-course').forEach((course) => {
+    const match = course.dataset.courseName.includes(query);
+    course.hidden = !match;
+    if (match) visible++;
+  });
+  const empty = document.querySelector('#course-empty');
+  if (empty) empty.style.display = visible ? 'none' : 'block';
+});
+document.querySelector('#print-results')?.addEventListener('click', () => window.print());
+const year = document.querySelector('#year');
+if (year) year.textContent = new Date().getFullYear();
+
+const contactForm = document.querySelector('#contact-form');
+const formMessage = document.querySelector('#form-message');
+if (contactForm && formMessage) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const address = new FormData(contactForm).get('email');
+    formMessage.textContent = `Thanks. Portal information can be sent to ${address}. This demo form does not submit data to a server.`;
+    contactForm.reset();
+  });
+}
+
+const registrationForm = document.querySelector('#registration-form');
+const registrationMessage = document.querySelector('#registration-message');
+if (registrationForm && registrationMessage) {
+  registrationForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const fields = new FormData(registrationForm);
+    registrationMessage.textContent = 'Creating your student account…';
+    try {
+      const response = await fetch('/api/auth/register', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fullName:fields.get('name').trim(),email:fields.get('email').trim(),phone:fields.get('phone').trim(),program:fields.get('program'),password:fields.get('password')})});
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message || 'Registration failed.');
+      registrationMessage.textContent = data.verificationRequired ? `Account created for ${data.full_name}. Check your university email and verify it before signing in.` : `Student account created for ${data.full_name}. You can now sign in to the portal.`;
+      registrationForm.reset();
+    } catch (error) { registrationMessage.textContent = error.message + ' Make sure the Starford server is running.'; }
+  });
+}
+
+const feeCourse = document.querySelector('#fee-course');
+const feeAmount = document.querySelector('#fee-amount');
+if (feeCourse && feeAmount) {
+  feeCourse.addEventListener('change', () => {
+    const amount = Number(feeCourse.value);
+    feeAmount.textContent = amount ? `${amount.toLocaleString()} SSP (sample)` : 'Select a course';
+  });
+}
+
+const paymentForm = document.querySelector('#payment-form');
+const paymentMessage = document.querySelector('#payment-message');
+if (paymentForm && paymentMessage) paymentForm.addEventListener('submit', (event) => event.preventDefault());
+/* Lecturer photos: show initials until the matching image file is added. */
+document.querySelectorAll('.lecturer-photo').forEach((photo) => {
+  const portrait = photo.closest('.lecturer-portrait');
+  const markLoaded = () => portrait?.classList.add('photo-loaded');
+  photo.addEventListener('load', markLoaded);
+  if (photo.complete && photo.naturalWidth > 0) markLoaded();
+});
+</script>
+
+   
+
+
+    <section class="portal-section" id="portal"><div class="container portal-grid"><div><p class="eyebrow">TAKE THE NEXT STEP</p><h2>Ready to make<br>progress?</h2><p>Starting university can bring a lot of questions. Sign in to your student portal or talk with our team—we will help you find your next step.</p><div class="portal-actions"><a class="button button-light" href="#registration">Register now <span aria-hidden="true">↗</span></a><a class="portal-phone" href="#support">Portal support <span aria-hidden="true">→</span></a></div></div><form class="portal-card" id="contact-form"><div class="portal-card-heading"><span class="portal-card-icon">✉</span><div><h3>Get portal updates</h3><p>Share your email and our team can follow up with you.</p></div></div><label for="email">University or personal email</label><div class="email-row"><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required><button type="submit" aria-label="Request portal information">→</button></div><p class="form-note" id="form-message" aria-live="polite">Already studying with us? Your faculty office can help you get into your account.</p></form></div></section>
+  </main>
+  <footer class="site-footer" id="support"><div class="container footer-main"><a class="brand footer-brand" href="#home"><img class="brand-logo" src="starford.jpg" alt="Starford International University crest"><span><strong>STARFORD</strong><small>INTERNATIONAL UNIVERSITY</small></span></a><p>We are glad you are here. Keep learning, ask questions, and take your next step with us.</p><div class="footer-links"><a href="#programs">Programs</a><a href="#experience">How it works</a><a href="#lecturers">Lecturers</a><a href="#portal">Contact support</a></div></div><div class="container footer-bottom"><span>© <span id="year">2026/2027</span> Starford International University juba</span><span>Learn with purpose. Build what’s next.</span></div></footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
